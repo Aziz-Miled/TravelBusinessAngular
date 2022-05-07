@@ -1,0 +1,47 @@
+
+
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="text-align:center;">
+      <h3>liste invitation</h3>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <br /><br />
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+          <th>email</th>
+          <th>username</th>
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let u of user">
+
+              <td>{{u.email}}</td>
+
+              <td>{{u.username}}</td>
+
+
+
+            </tr>
+
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+

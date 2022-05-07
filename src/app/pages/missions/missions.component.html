@@ -1,0 +1,137 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">List of missions</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Mission</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Start date</th>
+                <th scope="col">End date</th>
+                <th scope="col">Mission Object</th>
+                <th scope="col">Mission Status</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Company -->
+              <tr *ngFor="let mission of missions">
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <span class="mb-0 text-sm">{{mission.id}}</span>
+                    </div>
+                  </div>
+                </th>
+                <td>
+                  {{mission.destination}}
+                </td>
+                <td>
+                  {{mission.startDate}}
+                </td>
+                <td>
+                  {{mission.endDate}}
+                </td>
+                <td>
+                  {{mission.missionObject}}
+                </td>
+                <td>
+                  <span *ngIf="mission.missionStatus=='BEING_PROCESSED'" class="badge badge-dot mr-4">
+                    <i class="bg-warning"></i> {{mission.missionStatus}}
+                  </span>
+                  <span *ngIf="mission.missionStatus=='VALID'" class="badge badge-dot">
+                    <i class="bg-success"></i> {{mission.missionStatus}}
+                  </span>
+                </td>
+                <td class="text-right">
+                  <div ngbDropdown placement="bottom-right">
+                    <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                      <a class="dropdown-item" href="javascript:void(0)">Edit</a>
+                      <a class="dropdown-item" href="javascript:void(0)">Delete</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Dark table -->
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">List of mission affectations</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Mission</th>
+                <th scope="col">Employee related</th>
+                <th scope="col">Affectation Date</th>
+                <th scope="col">Mission affectation status</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let missionAffectation of missionAffectations">
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <span class="mb-0 text-sm">{{missionAffectation.id.idMission}}</span>
+                    </div>
+                  </div>
+                </th>
+                <td>
+                  {{missionAffectation.id.idUser}}
+                </td>
+                <td>
+                  {{missionAffectation.affectationDate}}
+                </td>
+                <td>
+                  <span *ngIf="missionAffectation.missionAffectationStatus=='BEING_PROCESSED'" class="badge badge-dot mr-4">
+                    <i class="bg-warning"></i> {{missionAffectation.missionAffectationStatus}}
+                  </span>
+                  <span *ngIf="missionAffectation.missionAffectationStatus=='VALID'" class="badge badge-dot">
+                    <i class="bg-success"></i> {{missionAffectation.missionAffectationStatus}}
+                  </span>
+                </td>
+                <td class="text-right">
+                  <div ngbDropdown placement="bottom-right">
+                    <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                      <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                      <a class="dropdown-item" href="javascript:void(0)">Edit</a>
+                      <a class="dropdown-item" href="javascript:void(0)">Delete</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
