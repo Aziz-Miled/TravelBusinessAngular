@@ -14,6 +14,10 @@ export class MissionService {
     return this.http.get<Mission[]>(`${this.apiServerUrl}/mission/all`);
   }
 
+  public getMissionById(missionId: number): Observable<Mission> {
+    return this.http.get<Mission>(`${this.apiServerUrl}/mission/find/${missionId}`);
+  }
+
   public addMission(mission: Mission): Observable<Mission> {
     return this.http.post<Mission>(`${this.apiServerUrl}/mission/add`, mission);
   }

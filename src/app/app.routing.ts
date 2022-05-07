@@ -5,11 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
+import { UsereLayoutComponent } from './layouts/usere-layout/usere-layout.component';
 
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'user-profile',
+    redirectTo: 'login',
     pathMatch: 'full',
   }, {
     path: '',
@@ -20,6 +22,15 @@ const routes: Routes =[
         loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
       }
     ]
+  },  {
+    path: 'user',
+    component: UserLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('src/app/layouts/user-layout/user-layout.module').then(m => m.UserLayoutModule)
+      }
+    ]
   }, {
     path: '',
     component: AuthLayoutComponent,
@@ -27,6 +38,15 @@ const routes: Routes =[
       {
         path: '',
         loadChildren: () => import('src/app/layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
+      }
+    ]
+  }, {
+    path: 'employee',
+    component: UsereLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('src/app/layouts/usere-layout/usere-layout.module').then(m => m.UsereLayoutModule)
       }
     ]
   }, {

@@ -10,8 +10,12 @@ export class TravelProgramService {
 
   constructor(private http: HttpClient){}
 
-  public getTravelPrograms(): Observable<TravelProgram[]> {
+  public matching(): Observable<TravelProgram[]> {
     return this.http.get<TravelProgram[]>(`${this.apiServerUrl}/matching/all`);
+  }
+
+  public getTravelPrograms(): Observable<TravelProgram[]> {
+    return this.http.get<TravelProgram[]>(`${this.apiServerUrl}/matching/allTP`);
   }
 
   public getAllValidatedTravelPrograms(): Observable<TravelProgram[]> {

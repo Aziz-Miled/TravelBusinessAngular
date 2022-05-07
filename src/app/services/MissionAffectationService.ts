@@ -14,6 +14,10 @@ export class MissionAffectationService {
     return this.http.get<MissionAffectation[]>(`${this.apiServerUrl}/missionAffectation/all`);
   }
 
+  public getMissionAffectationById(missionaffectationId: number[]): Observable<MissionAffectation> {
+    return this.http.get<MissionAffectation>(`${this.apiServerUrl}/mission/find/${missionaffectationId}`);
+  }
+
   public addMissionAffectation(missionAffectation: MissionAffectation): Observable<MissionAffectation> {
     return this.http.post<MissionAffectation>(`${this.apiServerUrl}/missionAffectation/add`, missionAffectation);
   }

@@ -9,6 +9,7 @@ import { TravelProgram } from 'src/app/interfaces/TravelProgram';
   styleUrls: ['./travelprograms.component.scss']
 })
 export class TravelProgramComponent implements OnInit {
+  
   public travelPrograms: TravelProgram[];
 
   constructor(private travelProgramService: TravelProgramService) { }
@@ -32,11 +33,30 @@ export class TravelProgramComponent implements OnInit {
     });
   }
 
+  public matching(): void {
+    this.travelProgramService.matching().subscribe({
+      next: (response: TravelProgram[]) => {
+        this.travelPrograms = response;
+        console.log(response);
+        this.getTravelPrograms();
+        window.location.reload();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      },
+      complete: () => {
+        console.log('complete');
+      }
+    });
+  }
+
   public validateTravelPrograms(): void {
     this.travelProgramService.getAllValidatedTravelPrograms().subscribe({
       next: (response: TravelProgram[]) => {
         this.travelPrograms = response;
         console.log(response);
+        this.getTravelPrograms();
+        window.location.reload();
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);

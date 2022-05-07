@@ -17,6 +17,7 @@ export class MissionComponent implements OnInit {
   public editMission: Mission;
   public deleteMission: Mission;
 
+  public missionAffectation: MissionAffectation
   public missionAffectations: MissionAffectation[];
   public editMissionAffectation: MissionAffectation;
   public deleteMissionAffectation: MissionAffectation;

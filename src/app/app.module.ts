@@ -17,6 +17,8 @@ import {UserService} from './services/UserService';
 import {TravelProgramService} from './services/TravelProgramService';
 import {MissionService} from './services/MissionService';
 import {MissionAffectationService} from './services/MissionAffectationService';
+import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
+import { UsereLayoutComponent } from './layouts/usere-layout/usere-layout.component';
 
 
 
@@ -28,12 +30,14 @@ import {MissionAffectationService} from './services/MissionAffectationService';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    UserLayoutComponent,
+    UsereLayoutComponent
   ],
   providers: [
     UserService,

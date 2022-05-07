@@ -12,6 +12,7 @@
     <div class="col">
       <div class="card shadow">
         <div class="card-header border-0">
+          <a (click)="matching()" class="btn btn-info test">Matching</a>
           <a (click)="validateTravelPrograms()" class="btn btn-info test">Validate Travel Programs</a>
           <h3 class="mb-0">Travel Programs List</h3>
         </div>
@@ -19,7 +20,7 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Travel Program</th>
+               <!-- <th scope="col">Travel Program</th> -->
                 <th scope="col">destination</th>
                 <th scope="col">Start Date</th>
                 <th scope="col">End Date</th>
@@ -32,13 +33,13 @@
             <tbody>
               <!-- Company -->
               <tr *ngFor="let tvpg of travelPrograms">
-                <th scope="row">
+               <!-- <th scope="row">
                   <div class="media align-items-center">
                     <div class="media-body">
                       <span class="mb-0 text-sm">{{tvpg.id}}</span>
                     </div>
                   </div>
-                </th>
+                </th> -->
                 <td>
                   {{tvpg.destination}}
                 </td>

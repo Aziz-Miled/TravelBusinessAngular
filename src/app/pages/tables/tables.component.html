@@ -19,7 +19,7 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Company</th>
+                <th scope="col">Users</th>
                 <th scope="col">Adress</th>
                 <th scope="col">Email</th>
                 <th scope="col">Inivtation Date</th>
@@ -34,7 +34,7 @@
                 <th scope="row">
                   <div class="media align-items-center">
                     <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                      <img alt="Image placeholder" src="../assets/img/theme/angular.jpg">
+                      <img alt="Image placeholder" src="{{user?.imageUrl}}">
                     </a>
                     <div class="media-body">
                       <span class="mb-0 text-sm">{{user.firstName}} {{user.lastName}}</span>
@@ -121,6 +121,10 @@
             <label for="invitationStatus">Invitation Status</label>
             <input type="text" ngModel="{{editUser?.invitationStatus}}" name="invitationStatus" class="form-control" id="invitationStatus" placeholder="Invitation Status">
          </div>
+         <div class="form-group">
+          <label for="phone">Image URL</label>
+          <input type="text" ngModel="{{editUser?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+         </div>
           <div class="modal-footer">
              <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
              <button (click)="onUpdateUser(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
@@ -167,6 +171,10 @@
              <label for="phoneNumber">Phone number</label>
              <input type="number" ngModel name="phoneNumber" class="form-control" id="phoneNumber" placeholder="Phone number" required>
           </div>
+          <div class="form-group">
+            <label for="phone">Image URL</label>
+            <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
+         </div>
           <div class="modal-footer">
              <button type="button" id="add-user-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>

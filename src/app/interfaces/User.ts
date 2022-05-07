@@ -3,6 +3,7 @@ import { Mission } from "./Mission";
 
 export interface User {
     id: number;
+    imageUrl: String;
     firstName: string;
     lastName: string;
     email: string;
